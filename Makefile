@@ -23,7 +23,7 @@ OBJ = $(addprefix $(OBJ_PATH), $(SRCS_NAME:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(LIBFT_PATH)
+	#@make -C $(LIBFT_PATH)
 	@gcc $(OBJ)  $(LIB) -o $(NAME)
 	@echo "\033[32mBinary \033[1;32m$(NAME)\033[1;0m\033[32m created.\033[0m"
 
@@ -33,10 +33,11 @@ $(OBJ_PATH)%.o: $(SRCS_PATH)%.c
 		@gcc -c $(INC) $< -o $@
 
 clean:
-		@make -C $(LIBFT_PATH) fclean
+		#@make -C $(LIBFT_PATH) fclean
 		@/bin/rm -rf $(OBJ_PATH)
 		@/bin/rm -rf filler.trace
 		@/bin/rm -rf board.map
+		@/bin/rm -rf logs.txt
 		@echo "\033[1;31m$(NAME) \033[1;0m\033[31mobjects files removed.\033[0m"
 
 fclean: clean

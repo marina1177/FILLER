@@ -88,11 +88,12 @@ void	heat_map(t_map *map)
 	int	y;
 	int	x;
 
+	ft_dprintf(map->fd, "HEAT MAP:\n");
 	y = -1;
-	while (++y < map->cols)
+	while (++y < map->rows)
 	{
 		x = -1;
-		while (++x < map->rows)
+		while (++x < map->cols)
 		{
 			if (map->map[y][x] == map->ch_player[0] ||
 				map->map[y][x] == map->ch_player[1])

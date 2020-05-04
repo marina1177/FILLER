@@ -1,19 +1,44 @@
 #include "filler.h"
 
-static void		parse_piece(t_pazzle *pazzle, char *line)
+static void	init_map(t_map *map)
 {
-	int		i;
 	char	*pnt;
+	char	*line;
+	char	ret;
 
-	pnt = line + 6;
-	pazzle->rows = ft_atoi(pnt);
-	while (*pnt >= '0' && *pnt <= '9')
-		pnt++;
-	pazzle->cols = ft_atoi(++pnt);
-	pazzle->piece = (char **)malloc(sizeof(char *) * pazzle->rows);
-	i = -1;
-	while (++i < pazzle->rows)
-		pazzle->piece[i] = (char *)malloc(sizeof(char) * pazzle->cols + 2);
+	pnt = NULL;
+
+	if ((ret = get_next_line(0, &line) == -1))
+		return ;
+	if (ft_strstr(line, "Piece"))
+	{
+		pnt = line + 8;
+		map->rows = ft_atoi(pnt);
+		while (*pnt >= '0' && *pnt <= '9')
+			pnt++;
+		map->cols = ft_atoi(++pnt);
+	}
+	free(line);
+}
+
+static void		init_piece(t_map *map, t_pazzle *pazzle)
+{
+	char	*pnt;
+	char	*line;
+	char	ret;
+
+	if ((ret = get_next_line(0, &line) == -1))
+		return ;
+	if (ft_strstr(line, "Piece"))
+	{
+		pnt = line + 6;
+		pazzle->rows = ft_atoi(pnt);
+		while (*pnt >= '0' && *pnt <= '9')
+			pnt++;
+		pazzle->cols = ft_atoi(++pnt);
+	}
+	free(line);
+	ft_dprintf(map->fd, "	init piece:[%d, %d]\n", pazzle->rows, pazzle->cols);
 }
 
 void			parse_pazzle(t_map *map, t_pazzle *pazzle)
@@ -23,9 +48,27 @@ void			parse_pazzle(t_map *map, t_pazzle *pazzle)
 	int		j;
 	int		size;
 
-	i = -1;
-	j = -1;
-	while ((size = get_line(0, &line)))
+	int		y;
+
+	y = -1;
+	ft_dprintf(map->fd, "PARSE PAZZLE:\n");
+
+	init_piece(	map, pazzle);
+	if (!(pazzle->piece = malloc(sizeof(char*) * pazzle->rows)))
+		return ;
+	while (++y < pazzle->rows)
+	{
+		get_next_line(0, &line);
+
+		ft_dprintf(map->fd, "__%s\n", line);
+		
+		pazzle->piece[y] = ft_strdup(line);
+		free(line);
+	}
+}
+
+
+/*	while ((size = get_line(0, &line)))
 	{
 		if (line[0] == '0')
 		{
@@ -45,6 +88,4 @@ void			parse_pazzle(t_map *map, t_pazzle *pazzle)
 		}
 		ft_strdel(&line);
 	}
-	if (size == -1)
-		return ;
-}
+	*/

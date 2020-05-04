@@ -51,6 +51,7 @@
 
 typedef struct	s_map
 {
+	int			fd;
 	char		**map;
 	int			**heat;
 
@@ -98,7 +99,7 @@ typedef struct	s_pazzle
 /*
 ** research.c
 */
-void			real_pazzle_size(t_pazzle *pazzle);
+void			real_pazzle_size(t_map *map, t_pazzle *pazzle);
 int				valid_place(t_map *map, t_pazzle *pazzle, int x, int y);
 int				solve(t_map *map, t_pazzle *pazzle);
 int				research(t_map *map, t_pazzle *pazzle);
@@ -119,7 +120,16 @@ void			parse_pazzle(t_map *map, t_pazzle *pazzle);
 /*
 ** create_map.c
 */
+void			init_player(t_map *map);
 int				create_map(t_map *map);
+
+/*
+** main.c
+*/
+void	ft_free2d(void **array, int len);
+void	free_map(t_map *map, t_pazzle *pazzle);
+void	print_coord(t_map *map, t_pazzle *pazzle);
+
 
 /*
 ** get_line.c

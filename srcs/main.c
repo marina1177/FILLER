@@ -12,22 +12,22 @@
 
 #include "filler.h"
 
-void	free_map(t_map *map)
+void	ft_free2d(void **array, int len)
 {
 	int i;
 
 	i = -1;
-	while (++i < map->rows)
-	{
-		free(map->map[i]);
-		map->map[i] = NULL;
-	}
-	while (--i > -1)
-	{
-		free(map->heat[i]);
-	}
-	free(map->map);
-	free(map->heat);
+	while (++i < len)
+		free(array[i]);
+	free(array);
+}
+
+void	free_map(t_map *map, t_pazzle *pazzle)
+{
+	ft_free2d((void**)(map->map), map->rows+1);
+	if (pazzle->piece)
+		ft_free2d((void**)(pazzle->piece), pazzle->rows);
+	ft_free2d((void**)(map->heat), map->rows);
 	map->map = NULL;
 	ft_putstr("0 0\n");
 }
@@ -37,36 +37,48 @@ void	print_coord(t_map *map, t_pazzle *pazzle)
 	int i;
 
 	i = -1;
-	ft_printf("%d %d\n",map->fin_y,map->fin_x);
-	while (++i < pazzle->rows)
-		ft_strdel(&pazzle->piece[i]);
-	free(pazzle->piece);
-	pazzle->piece = NULL;
+	ft_putnbr(map->fin_y);
+	ft_putchar(' ');
+	ft_putnbr(map->fin_x);
+	ft_putchar('\n');
+	ft_free2d((void**)(pazzle->piece), pazzle->rows);
 }
 
 int		main(void)
 {
-	t_map		map;
+	t_map			map;
 	t_pazzle		pazzle;
 
+	
+	
 	ft_bzero(&map, sizeof(t_map));
 	ft_bzero(&pazzle, sizeof(t_pazzle));
-	if (!create_map(&map))
-	{
-		ft_dprintf(2, "%sError: Invalid input%s\n", RED, EOC);
-		return (0) ;
-	}
+
+	int fd = open("logs.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
+	map.fd = fd;
+	ft_dprintf(map.fd, "%s\n", "START!1!:");
+	
+	init_player(&map);
+	int cycle = 0;
 	while (TRUE)
 	{
+		map.fd = fd;
+		ft_dprintf(map.fd, "<<<CYCLE #%d>>>\n", cycle++);
+		create_map(&map);
+		ft_dprintf(map.fd, "%s\n", "create map succsesfully");
 		parse_pazzle(&map, &pazzle);
+		ft_dprintf(map.fd, "%s\n", "parse pazzle succsesfully");
 		heat_map(&map);
+		ft_dprintf(map.fd, "%s\n", "create heat_map succsesfully");
 		if (research(&map, &pazzle))
 			print_coord(&map, &pazzle);
 		else
 		{
-			free_map(&map);
-			break ;
+			ft_dprintf(map.fd, "%s\n", "END GAME!");
+			free_map(&map, &pazzle);
+			return (0);
 		}
 	}
+	close(map.fd);
 	return (0);
 }

@@ -1,10 +1,11 @@
 #include "filler.h"
 
-void	real_pazzle_size(t_pazzle *pazzle)
+void	real_pazzle_size(t_map *map, t_pazzle *pazzle)
 {
 	int i;
 	int j;
 
+	ft_dprintf(map->fd, "	real pazzle size:\n");
 	pazzle->left = pazzle->cols;
 	pazzle->up = pazzle->rows;
 	i = -1;
@@ -26,6 +27,7 @@ void	real_pazzle_size(t_pazzle *pazzle)
 			}
 		}
 	}
+	ft_dprintf(map->fd, "	up = %d\n	down = %d\n	left = %d\n	right = %d\n", pazzle->up, pazzle->down, pazzle->left, pazzle->right);
 }
 
 int		valid_place(t_map *map, t_pazzle *pazzle, int x, int y)
@@ -63,6 +65,7 @@ int		solve(t_map *map, t_pazzle *pazzle)
 	int y;
 	int value;
 
+	ft_dprintf(map->fd, "	solve:\n");
 	value = INT32_MAX;
 	y = -1;
 	while (++y < map->rows)
@@ -79,15 +82,19 @@ int		solve(t_map *map, t_pazzle *pazzle)
 		}
 	}
 	if (value == INT32_MAX)
+	{
+		ft_dprintf(map->fd, "		no\n");
 		return (0);
+	}
+	ft_dprintf(map->fd, "		yes\n");
 	return (1);
-
 }
 
 int		research(t_map *map, t_pazzle *pazzle)
 {
+	ft_dprintf(map->fd, "RESEARCH:\n");
 	pazzle->down = 0;
 	pazzle->right = 0;
-	real_pazzle_size(pazzle);
+	real_pazzle_size(map, pazzle);
 	return(solve(map, pazzle));
 }
