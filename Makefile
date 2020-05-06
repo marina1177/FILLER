@@ -1,6 +1,6 @@
 NAME = bcharity.filler
 
-FLAGS = -Wall -Werror -Wextra -g3
+FLAGS = -Wall -Werror -Wextra #-g3
 INC = -I ./includes/
 LIB = -L ./libft -lft
 
@@ -14,7 +14,12 @@ SRCS_NAME =	main.c \
 			create_map.c \
 			parse.c \
 			heat_map.c \
-			research.c
+			research.c \
+			vs_package.c \
+			vs_utilites.c \
+			vs_itoa_fd.c \
+			vs_put_file.c \
+			end_game.c
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(SRCS_NAME:.c=.o))
@@ -24,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	#@make -C $(LIBFT_PATH)
-	@gcc $(OBJ)  $(LIB) -o $(NAME)
+	@gcc $(FLAGS) $(OBJ)  $(LIB) -o $(NAME)
 	@echo "\033[32mBinary \033[1;32m$(NAME)\033[1;0m\033[32m created.\033[0m"
 
 $(OBJ_PATH)%.o: $(SRCS_PATH)%.c
@@ -38,6 +43,7 @@ clean:
 		@/bin/rm -rf filler.trace
 		@/bin/rm -rf board.map
 		@/bin/rm -rf logs.txt
+		@/bin/rm -rf vis.json
 		@echo "\033[1;31m$(NAME) \033[1;0m\033[31mobjects files removed.\033[0m"
 
 fclean: clean

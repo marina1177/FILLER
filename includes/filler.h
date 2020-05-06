@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcharity <bcharity@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 22:44:46 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/03 13:35:15 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/06 17:33:28 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # define TRUE 1
 # define FALSE 0
 
-//# include "../libft/includes/libft.h"
-
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
+# include "vs_const.h"
 
 # include <errno.h>
 # include <sys/types.h>
@@ -31,28 +30,28 @@
 
 # include <stdio.h>
 
-# define EOC	"\033[0m"
-# define RED	"\033[1;31m"
-# define YELLOW	"\033[1;33m"
-# define WHITE	"\033[1;37m"
-# define BLACK	"\033[0;30m"
-# define GREEN	"\033[0;32m"
-# define BLUE	"\033[0;34m"
-# define PURPUL	"\033[0;35m"
-# define CYAN	"\033[0;36m"
-# define GRAY	"\033[1;30m"
-
 # define MY_NAME "bcharity.filler"
 # define CH_P1 "Oo"
 # define CH_P2 "Xx"
 # define NUM_P1 01
 # define NUM_P2 10
 
+typedef struct	s_vs
+{
+	int			end_game;
+	int			cycle;
+	int			my_num;
+	int			my_cells[100];
+	int			opp_num;
+	int			opp_cells[100];
+	int			fd;
+}				t_vs;
 
 typedef struct	s_map
 {
 	int			fd;
 	char		**map;
+	char		**old_map;
 	int			**heat;
 
 	char		*ch_player;
@@ -60,13 +59,11 @@ typedef struct	s_map
 	char		*ch_opp;
 	int			num_opp;
 
-
-	int			rows;//consts
+	int			rows;
 	int			cols;
-
 	int			fin_x;
 	int			fin_y;
-	//t_vis		*vis;
+	t_vs		vs;
 
 }				t_map;
 
@@ -75,7 +72,6 @@ typedef struct	s_pazzle
 	char		**piece;
 	int			rows;
 	int			cols;
-
 	int			up;
 	int			left;
 	int			down;
@@ -83,18 +79,32 @@ typedef struct	s_pazzle
 
 }				t_pazzle;
 
-/*typedef struct	s_vis
-{
-	char		*my_player;
-	char		*op_player;
+/*
+** end_game.c
+*/
+int				handle_error(t_map *map, t_pazzle *pazzle, char *s);
+void			ft_free2d(void **array, int len);
+void			free_map(t_map *map, t_pazzle *pazzle);
 
-	int			my_cells[100];
-	int			opp_cells[100];
+/*
+** vs_itoa_fd.c
+*/
+int				vs_itoa_fd(int fd, int n);
 
-	t_pazzle	*opp_pazzles;
-	t_pazzle	*my_pazzles;
-
-}				t_vis;*/
+/*
+** vs_utilites.c
+*/
+int				count_dig(size_t val);
+int				vs_putstr_fd(int fd, char const *s);
+/*
+** vs_package.c
+*/
+void			put_opp_cells(t_vs *vs);
+void			put_my_cells(t_vs *vs);
+void			put_map_const(t_map *map, t_vs *vs);
+void			put_file(t_map *map);
+int				vs_pack_cell(int y, int x, t_map *map, int type);
+int				send_vs(t_map *map, t_pazzle *pazzle);
 
 /*
 ** research.c
@@ -115,21 +125,18 @@ void			heat_map(t_map *map);
 /*
 ** parse.c
 */
-void			parse_pazzle(t_map *map, t_pazzle *pazzle);
+int				parse_pazzle(t_map *map, t_pazzle *pazzle);
 
 /*
 ** create_map.c
 */
-void			init_player(t_map *map);
+int				init_player(t_map *map);
 int				create_map(t_map *map);
 
 /*
 ** main.c
 */
-void	ft_free2d(void **array, int len);
-void	free_map(t_map *map, t_pazzle *pazzle);
-void	print_coord(t_map *map, t_pazzle *pazzle);
-
+void			print_coord(t_map *map, t_pazzle *pazzle);
 
 /*
 ** get_line.c

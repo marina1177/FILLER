@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   heat_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcharity <bcharity@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 21:09:52 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/03 00:15:51 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/06 17:29:18 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	set_zeros(t_map *map)
+void		set_zeros(t_map *map)
 {
 	int	y;
 	int	x;
@@ -29,7 +29,7 @@ void	set_zeros(t_map *map)
 	}
 }
 
-void	set_neighbor(t_map *map)
+void		set_neighbor(t_map *map)
 {
 	int	y;
 	int	x;
@@ -58,7 +58,7 @@ void	set_neighbor(t_map *map)
 	}
 }
 
-void	set_first(t_map *map)
+void		set_first(t_map *map)
 {
 	int	y;
 	int	x;
@@ -83,29 +83,20 @@ void	set_first(t_map *map)
 	}
 }
 
-void	heat_map(t_map *map)
+static void	set_begin(int y, int x, t_map *map)
 {
-	int	y;
-	int	x;
-
-	ft_dprintf(map->fd, "HEAT MAP:\n");
-	y = -1;
-	while (++y < map->rows)
-	{
-		x = -1;
-		while (++x < map->cols)
-		{
-			if (map->map[y][x] == map->ch_player[0] ||
+	if (map->map[y][x] == map->ch_player[0] ||
 				map->map[y][x] == map->ch_player[1])
-				map->heat[y][x] = -1;
-			else if (map->map[y][x] == map->ch_opp[0] ||
-				map->map[y][x] == map->ch_opp[1])
-				map->heat[y][x] = -2;
-			else
-				map->heat[y][x] = 0;
-		}
+	{
+		vs_pack_cell(y, x, map, 0);
+		map->heat[y][x] = -1;
 	}
-	set_first(map);
-	set_neighbor(map);
-	set_zeros(map);
+	else if (map->map[y][x] == map->ch_opp[0] ||
+			map->map[y][x] == map->ch_opp[1])
+	{
+		vs_pack_cell(y, x, map, 1);
+		map->heat[y][x] = -2;
+	}
+	else
+		map->heat[y][x] = 0;
 }
