@@ -1,0 +1,707 @@
+[
+	{"Consts": {
+		"map_rows": 24,
+		"map_cols": 40,
+		"my_ch": "Xx",
+		"opp_ch": "Oo"
+	},
+	"end_game": 0,
+	"cycle": 0,
+	"my_cells": [793],
+	"opp_cells": [164,124]
+},{
+	"end_game": 1,
+	"cycle": 1,
+	"my_cells": [795,794],
+	"opp_cells": [207,206,205,204]
+},{
+	"end_game": 2,
+	"cycle": 2,
+	"my_cells": [835],
+	"opp_cells": [208]
+},{
+	"end_game": 3,
+	"cycle": 3,
+	"my_cells": [876,875,836,796],
+	"opp_cells": [287,248,247]
+},{
+	"end_game": 4,
+	"cycle": 4,
+	"my_cells": [878,877],
+	"opp_cells": [209]
+},{
+	"end_game": 5,
+	"cycle": 5,
+	"my_cells": [959,958,920,919,918,917,879],
+	"opp_cells": [329,328,289,288]
+},{
+	"end_game": 6,
+	"cycle": 6,
+	"my_cells": [831,792,791,753,751,750,712,711],
+	"opp_cells": [211,210,171,170]
+},{
+	"end_game": 7,
+	"cycle": 7,
+	"my_cells": [960],
+	"opp_cells": [330]
+},{
+	"end_game": 8,
+	"cycle": 8,
+	"my_cells": [880],
+	"opp_cells": [172]
+},{
+	"end_game": 9,
+	"cycle": 9,
+	"my_cells": [913,912,911,874,873,834,833],
+	"opp_cells": [370,369]
+},{
+	"end_game": 10,
+	"cycle": 10,
+	"my_cells": [957],
+	"opp_cells": [173]
+},{
+	"end_game": 11,
+	"cycle": 11,
+	"my_cells": [954,953,952,914],
+	"opp_cells": [410]
+},{
+	"end_game": 12,
+	"cycle": 12,
+	"my_cells": [955],
+	"opp_cells": [133]
+},{
+	"end_game": 13,
+	"cycle": 13,
+	"my_cells": [839,838,837,799],
+	"opp_cells": [450]
+},{
+	"end_game": 14,
+	"cycle": 14,
+	"my_cells": [956],
+	"opp_cells": [93]
+},{
+	"end_game": 15,
+	"cycle": 15,
+	"my_cells": [915],
+	"opp_cells": [452,451]
+},{
+	"end_game": 16,
+	"cycle": 16,
+	"my_cells": [788,787,749,709],
+	"opp_cells": [96,95,94,54,14]
+},{
+	"end_game": 17,
+	"cycle": 17,
+	"my_cells": [825,786,785,747],
+	"opp_cells": [492,491,453]
+},{
+	"end_game": 18,
+	"cycle": 18,
+	"my_cells": [906,866,865,826],
+	"opp_cells": [99,98,97]
+},{
+	"end_game": 19,
+	"cycle": 19,
+	"my_cells": [947],
+	"opp_cells": [493]
+},{
+	"end_game": 20,
+	"cycle": 20,
+	"my_cells": [946,907],
+	"opp_cells": [100]
+},{
+	"end_game": 21,
+	"cycle": 21,
+	"my_cells": [949,948],
+	"opp_cells": [495,494]
+},{
+	"end_game": 22,
+	"cycle": 22,
+	"my_cells": [945,905],
+	"opp_cells": [102,101]
+},{
+	"end_game": 23,
+	"cycle": 23,
+	"my_cells": [871,870,869,868,867,828],
+	"opp_cells": [535,497,496]
+},{
+	"end_game": 24,
+	"cycle": 24,
+	"my_cells": [950],
+	"opp_cells": [105,104,103]
+},{
+	"end_game": 25,
+	"cycle": 25,
+	"my_cells": [784,783,745,744,743,703],
+	"opp_cells": [576,575,536]
+},{
+	"end_game": 26,
+	"cycle": 26,
+	"my_cells": [872,832],
+	"opp_cells": [65]
+},{
+	"end_game": 27,
+	"cycle": 27,
+	"my_cells": [910,909,908],
+	"opp_cells": [657,656,618,617,616,615]
+},{
+	"end_game": 28,
+	"cycle": 28,
+	"my_cells": [742,701,700,663],
+	"opp_cells": [67,66]
+},{
+	"end_game": 29,
+	"cycle": 29,
+	"my_cells": [830,829],
+	"opp_cells": [659,658]
+},{
+	"end_game": 30,
+	"cycle": 30,
+	"my_cells": [699,660],
+	"opp_cells": [69,68,27]
+},{
+	"end_game": 31,
+	"cycle": 31,
+	"my_cells": [756,755,754],
+	"opp_cells": [738,698]
+},{
+	"end_game": 32,
+	"cycle": 32,
+	"my_cells": [951],
+	"opp_cells": [153,152,113,112,111,110,109,73,72,71]
+},{
+	"end_game": 33,
+	"cycle": 33,
+	"my_cells": [824,823],
+	"opp_cells": [778,739]
+},{
+	"end_game": 34,
+	"cycle": 34,
+	"my_cells": [904,903,902,901,900,863,862,860],
+	"opp_cells": [233,193]
+},{
+	"end_game": 35,
+	"cycle": 35,
+	"my_cells": [899,898,859,858,822,821,820],
+	"opp_cells": [818,817]
+},{
+	"end_game": 36,
+	"cycle": 36,
+	"my_cells": [662,661,621,620,619],
+	"opp_cells": [75,74,34,33]
+},{
+	"end_game": 37,
+	"cycle": 37,
+	"my_cells": [797,759,758,757],
+	"opp_cells": [819]
+},{
+	"end_game": 38,
+	"cycle": 38,
+	"my_cells": [938,937,897],
+	"opp_cells": [78,77,76,37,36,35]
+},{
+	"end_game": 39,
+	"cycle": 39,
+	"my_cells": [944],
+	"opp_cells": [857,856,816]
+},{
+	"end_game": 40,
+	"cycle": 40,
+	"my_cells": [623,622,583,582,581,580,541],
+	"opp_cells": [120,119,80,79]
+},{
+	"end_game": 41,
+	"cycle": 41,
+	"my_cells": [585,545,544,543,505,504,502,501],
+	"opp_cells": [855]
+},{
+	"end_game": 42,
+	"cycle": 42,
+	"my_cells": [940,939],
+	"opp_cells": [315,314,273]
+},{
+	"end_game": 43,
+	"cycle": 43,
+	"my_cells": [941],
+	"opp_cells": [854]
+},{
+	"end_game": 44,
+	"cycle": 44,
+	"my_cells": [943,942],
+	"opp_cells": [40,39]
+},{
+	"end_game": 45,
+	"cycle": 45,
+	"my_cells": [790,789],
+	"opp_cells": [853]
+},{
+	"end_game": 46,
+	"cycle": 46,
+	"my_cells": [781,741],
+	"opp_cells": [117]
+},{
+	"end_game": 47,
+	"cycle": 47,
+	"my_cells": [665,626,625,586],
+	"opp_cells": [891,890,852,851,850,849,848]
+},{
+	"end_game": 48,
+	"cycle": 48,
+	"my_cells": [707,667,627,587],
+	"opp_cells": [38]
+},{
+	"end_game": 49,
+	"cycle": 49,
+	"my_cells": [714,713],
+	"opp_cells": [888,847]
+},{
+	"end_game": 50,
+	"cycle": 50,
+	"my_cells": [746,705,704],
+	"opp_cells": [200,160]
+},{
+	"end_game": 51,
+	"cycle": 51,
+	"my_cells": [916],
+	"opp_cells": [893,892]
+},{
+	"end_game": 52,
+	"cycle": 52,
+	"my_cells": [669,668,629,628],
+	"opp_cells": [280,240,239,238,199,198,159]
+},{
+	"end_game": 53,
+	"cycle": 53,
+	"my_cells": [864],
+	"opp_cells": [887,846,845,806]
+},{
+	"end_game": 54,
+	"cycle": 54,
+	"my_cells": [861],
+	"opp_cells": [118]
+},{
+	"end_game": 55,
+	"cycle": 55,
+	"my_cells": [840],
+	"opp_cells": [936,935,896,895]
+},{
+	"end_game": 56,
+	"cycle": 56,
+	"my_cells": [827],
+	"opp_cells": [237,236,235,197,196,157,156]
+},{
+	"end_game": 57,
+	"cycle": 57,
+	"my_cells": [800],
+	"opp_cells": [934,933,894]
+},{
+	"end_game": 58,
+	"cycle": 58,
+	"my_cells": [798],
+	"opp_cells": [279]
+},{
+	"end_game": 59,
+	"cycle": 59,
+	"my_cells": [782],
+	"opp_cells": [924,884,883,882,881,844,842]
+},{
+	"end_game": 60,
+	"cycle": 60,
+	"my_cells": [588,548,547,508,507,506],
+	"opp_cells": [359,319,278]
+},{
+	"end_game": 61,
+	"cycle": 61,
+	"my_cells": [760],
+	"opp_cells": [931,930,889]
+},{
+	"end_game": 62,
+	"cycle": 62,
+	"my_cells": [780,779,740],
+	"opp_cells": [320]
+},{
+	"end_game": 63,
+	"cycle": 63,
+	"my_cells": [579,578,577,538,537],
+	"opp_cells": [932]
+},{
+	"end_game": 64,
+	"cycle": 64,
+	"my_cells": [710,708,670],
+	"opp_cells": [399,398,358,357]
+},{
+	"end_game": 65,
+	"cycle": 65,
+	"my_cells": [664,624,584],
+	"opp_cells": [814,777,776,775,774,737,736,735]
+},{
+	"end_game": 66,
+	"cycle": 66,
+	"my_cells": [717,716,715],
+	"opp_cells": [360]
+},{
+	"end_game": 67,
+	"cycle": 67,
+	"my_cells": [752],
+	"opp_cells": [885,805,804]
+},{
+	"end_game": 68,
+	"cycle": 68,
+	"my_cells": [500,499,498,460,459,458],
+	"opp_cells": [440,439,400]
+},{
+	"end_game": 69,
+	"cycle": 69,
+	"my_cells": [706,666],
+	"opp_cells": [807,767,766,727]
+},{
+	"end_game": 70,
+	"cycle": 70,
+	"my_cells": [748],
+	"opp_cells": [480]
+},{
+	"end_game": 71,
+	"cycle": 71,
+	"my_cells": [420,419,418,417,379,378,377],
+	"opp_cells": [815]
+},{
+	"end_game": 72,
+	"cycle": 72,
+	"my_cells": [718],
+	"opp_cells": [116,115]
+},{
+	"end_game": 73,
+	"cycle": 73,
+	"my_cells": [457,456,455,416,415,375],
+	"opp_cells": [813,812,811,772,732,731]
+},{
+	"end_game": 74,
+	"cycle": 74,
+	"my_cells": [589,550,549,510],
+	"opp_cells": [559,520,519,518,479]
+},{
+	"end_game": 75,
+	"cycle": 75,
+	"my_cells": [631,630,592,591,551],
+	"opp_cells": [810,809,770,769,730,729]
+},{
+	"end_game": 76,
+	"cycle": 76,
+	"my_cells": [719],
+	"opp_cells": [317,316]
+},{
+	"end_game": 77,
+	"cycle": 77,
+	"my_cells": [672,671,632],
+	"opp_cells": [803,802,801,763,762,722]
+},{
+	"end_game": 78,
+	"cycle": 78,
+	"my_cells": [675,674,673,633],
+	"opp_cells": [437,397]
+},{
+	"end_game": 79,
+	"cycle": 79,
+	"my_cells": [542,503],
+	"opp_cells": [928,927,886]
+},{
+	"end_game": 80,
+	"cycle": 80,
+	"my_cells": [540,539],
+	"opp_cells": [277]
+},{
+	"end_game": 81,
+	"cycle": 81,
+	"my_cells": [702],
+	"opp_cells": [765,764,725]
+},{
+	"end_game": 82,
+	"cycle": 82,
+	"my_cells": [462,461],
+	"opp_cells": [478,477]
+},{
+	"end_game": 83,
+	"cycle": 83,
+	"my_cells": [590],
+	"opp_cells": [734,733,695,694,693]
+},{
+	"end_game": 84,
+	"cycle": 84,
+	"my_cells": [720],
+	"opp_cells": [560,558,557,556]
+},{
+	"end_game": 85,
+	"cycle": 85,
+	"my_cells": [546],
+	"opp_cells": [929]
+},{
+	"end_game": 86,
+	"cycle": 86,
+	"my_cells": [414,413,373],
+	"opp_cells": [195,155]
+},{
+	"end_game": 87,
+	"cycle": 87,
+	"my_cells": [680,640,600],
+	"opp_cells": [726,724,723,683,643]
+},{
+	"end_game": 88,
+	"cycle": 88,
+	"my_cells": [372,333],
+	"opp_cells": [438,436]
+},{
+	"end_game": 89,
+	"cycle": 89,
+	"my_cells": [676],
+	"opp_cells": [692,691,654,653,652]
+},{
+	"end_game": 90,
+	"cycle": 90,
+	"my_cells": [677],
+	"opp_cells": [639,638,599,598]
+},{
+	"end_game": 91,
+	"cycle": 91,
+	"my_cells": [637,636,597],
+	"opp_cells": [926,925]
+},{
+	"end_game": 92,
+	"cycle": 92,
+	"my_cells": [332,331,293,292,291,253,251,214],
+	"opp_cells": [396,356]
+},{
+	"end_game": 93,
+	"cycle": 93,
+	"my_cells": [296,256,255,254],
+	"opp_cells": [808]
+},{
+	"end_game": 94,
+	"cycle": 94,
+	"my_cells": [679,678],
+	"opp_cells": [517,476]
+},{
+	"end_game": 95,
+	"cycle": 95,
+	"my_cells": [376,339,338,337,336,299,298,297],
+	"opp_cells": [773,771]
+},{
+	"end_game": 96,
+	"cycle": 96,
+	"my_cells": [259,258,257,219,217,179,178],
+	"opp_cells": [596,516]
+},{
+	"end_game": 97,
+	"cycle": 97,
+	"my_cells": [252,212],
+	"opp_cells": [728,690,689]
+},{
+	"end_game": 98,
+	"cycle": 98,
+	"my_cells": [454],
+	"opp_cells": [435,395,394,355,354,353]
+},{
+	"end_game": 99,
+	"cycle": 99,
+	"my_cells": [412,411,371],
+	"opp_cells": [688,687,647]
+},{
+	"end_game": 100,
+	"cycle": 100,
+	"my_cells": [635,634],
+	"opp_cells": [276,275]
+},{
+	"end_game": 101,
+	"cycle": 101,
+	"my_cells": [295,294],
+	"opp_cells": [686,646,645]
+},{
+	"end_game": 102,
+	"cycle": 102,
+	"my_cells": [593],
+	"opp_cells": [475]
+},{
+	"end_game": 103,
+	"cycle": 103,
+	"my_cells": [380,340],
+	"opp_cells": [651,650,611,610,570]
+},{
+	"end_game": 104,
+	"cycle": 104,
+	"my_cells": [335],
+	"opp_cells": [554,515,514,513,474]
+},{
+	"end_game": 105,
+	"cycle": 105,
+	"my_cells": [213,174],
+	"opp_cells": [843,841]
+},{
+	"end_game": 106,
+	"cycle": 106,
+	"my_cells": [594],
+	"opp_cells": [194,192,191,154,151]
+},{
+	"end_game": 107,
+	"cycle": 107,
+	"my_cells": [334],
+	"opp_cells": [768]
+},{
+	"end_game": 108,
+	"cycle": 108,
+	"my_cells": [552],
+	"opp_cells": [434,433]
+},{
+	"end_game": 109,
+	"cycle": 109,
+	"my_cells": [553,512,511,471,431],
+	"opp_cells": [923]
+},{
+	"end_game": 110,
+	"cycle": 110,
+	"my_cells": [421,381,341],
+	"opp_cells": [555]
+},{
+	"end_game": 111,
+	"cycle": 111,
+	"my_cells": [509],
+	"opp_cells": [684,682,644]
+},{
+	"end_game": 112,
+	"cycle": 112,
+	"my_cells": [374],
+	"opp_cells": [352,351,312,272]
+},{
+	"end_game": 113,
+	"cycle": 113,
+	"my_cells": [463,423,422],
+	"opp_cells": [649,648,609,608,607]
+},{
+	"end_game": 114,
+	"cycle": 114,
+	"my_cells": [465,464,425,424],
+	"opp_cells": [230,190,189,188,150]
+},{
+	"end_game": 115,
+	"cycle": 115,
+	"my_cells": [218],
+	"opp_cells": [685,606,605,604,566,565]
+},{
+	"end_game": 116,
+	"cycle": 116,
+	"my_cells": [595],
+	"opp_cells": [271,270,232,231]
+},{
+	"end_game": 117,
+	"cycle": 117,
+	"my_cells": [472,432],
+	"opp_cells": [922,921]
+},{
+	"end_game": 118,
+	"cycle": 118,
+	"my_cells": [466,427,426],
+	"opp_cells": [390,389,388,387,350,349,347,309]
+},{
+	"end_game": 119,
+	"cycle": 119,
+	"my_cells": [469,468,467,429],
+	"opp_cells": [761,721]
+},{
+	"end_game": 120,
+	"cycle": 120,
+	"my_cells": [473],
+	"opp_cells": [274,234]
+},{
+	"end_game": 121,
+	"cycle": 121,
+	"my_cells": [301,261,260,221,220],
+	"opp_cells": [681,641]
+},{
+	"end_game": 122,
+	"cycle": 122,
+	"my_cells": [384,383,382,345,344,343,342,303,302],
+	"opp_cells": [158]
+},{
+	"end_game": 123,
+	"cycle": 123,
+	"my_cells": [470],
+	"opp_cells": [697]
+},{
+	"end_game": 124,
+	"cycle": 124,
+	"my_cells": [386,346],
+	"opp_cells": [269,229,228]
+},{
+	"end_game": 125,
+	"cycle": 125,
+	"my_cells": [385],
+	"opp_cells": [613,612,573,572]
+},{
+	"end_game": 126,
+	"cycle": 126,
+	"my_cells": [305,304],
+	"opp_cells": [187,185,184,147,146]
+},{
+	"end_game": 127,
+	"cycle": 127,
+	"my_cells": [306],
+	"opp_cells": [571,569,568,531,529]
+},{
+	"end_game": 128,
+	"cycle": 128,
+	"my_cells": [267,266,265,227,226],
+	"opp_cells": [393,392]
+},{
+	"end_game": 129,
+	"cycle": 129,
+	"my_cells": [308,307,268],
+	"opp_cells": [696]
+},{
+	"end_game": 130,
+	"cycle": 130,
+	"my_cells": [300],
+	"opp_cells": [318]
+},{
+	"end_game": 131,
+	"cycle": 131,
+	"my_cells": [263,262],
+	"opp_cells": [655]
+},{
+	"end_game": 132,
+	"cycle": 132,
+	"my_cells": [264],
+	"opp_cells": [114]
+},{
+	"end_game": 133,
+	"cycle": 133,
+	"my_cells": [223,222],
+	"opp_cells": [614,574]
+},{
+	"end_game": 134,
+	"cycle": 134,
+	"my_cells": [224],
+	"opp_cells": [92,53,52,51,13,11]
+},{
+	"end_game": 135,
+	"cycle": 135,
+	"my_cells": [183,182,143,142],
+	"opp_cells": [642]
+},{
+	"end_game": 136,
+	"cycle": 136,
+	"my_cells": [177,176,175,136],
+	"opp_cells": [313]
+},{
+	"end_game": 137,
+	"cycle": 137,
+	"my_cells": [215],
+	"opp_cells": [603]
+},{
+	"end_game": 138,
+	"cycle": 138,
+	"my_cells": [216],
+	"opp_cells": [32,31]
+},{
+	"end_game": 139,
+	"cycle": 139,
+	"my_cells": [181,180,141,139],
+	"opp_cells": [602,564,563]
+}]
