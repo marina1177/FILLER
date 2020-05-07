@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:16:19 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:49:27 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 13:31:18 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	free_map(t_map *map, t_pazzle *pazzle)
 int		handle_error(t_map *map, t_pazzle *pazzle, char *s)
 {
 	map->vs.end_game = 1;
-	ft_dprintf(map->fd, "%s\n", s);
 	send_vs(map, pazzle);
 	free_map(map, pazzle);
 	close(map->fd);
+	get_next_line(0, NULL);
 	return (0);
 }

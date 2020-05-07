@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:10:51 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 21:53:21 by clala            ###   ########.fr       */
+/*   Updated: 2020/05/07 13:49:18 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,25 @@ static void		get_line_from_heapfd(char **heapfd, char **line,
 		char *n, int len_before_n)
 {
 	char		*tmp;
-	size_t		len_n;
 
 	if (!(*line = ft_strnew(len_before_n + 1)))
 		return ;
 	ft_memcpy(*line, *heapfd, len_before_n);
 	tmp = *heapfd;
-	len_n = ft_strlen(n);
-	*heapfd = ft_strnew(len_n);
-	ft_memcpy(*heapfd, n + 1, len_n - 1);
+	if (!ft_strlen(n) || !ft_strcmp(*heapfd, "\n\0"))
+	{
+		free(*heapfd);
+		return ;
+	}
+	*heapfd = ft_strdup(n + 1);
 	free(tmp);
+}
+
+static int		gg_norma(char **str)
+{
+	if (*str != NULL)
+		free(*str);
+	return (-1);
 }
 
 int				get_next_line(int const fd, char **line)
@@ -58,8 +67,8 @@ int				get_next_line(int const fd, char **line)
 	int			r;
 	char		*n;
 
-	if ((read(fd, stack, 0) < 0) || fd < 0 || fd > 11000)
-		return (-1);
+	if (!line || fd < 0 || (read(fd, stack, 0) < 0) || fd > 11000)
+		return (gg_norma(&heap[fd]));
 	if (!(*line = NULL) && !heap[fd])
 		heap[fd] = ft_strnew(0);
 	while (!(ft_strchr(heap[fd], '\n')) && (r = read(fd, stack, BUFF_SIZE)))

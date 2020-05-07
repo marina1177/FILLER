@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 22:44:25 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:49:47 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/06 20:41:58 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		main(void)
 	{
 		ft_dprintf(map.fd, "<<<CYCLE #%d>>>\n", map.vs.cycle);
 		if (!create_map(&map))
-			return (handle_error(&map, &pazzle, "create map error\n"));
+			return (handle_error(&map, &pazzle, "create map[%d;%d] error\n"));
 		ft_dprintf(map.fd, "%s\n", "create map succesfully");
 		if (!parse_pazzle(&map, &pazzle))
 			return (handle_error(&map, &pazzle, "parse pazzle error\n"));

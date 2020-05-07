@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:18:54 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:52:09 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 13:46:02 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		count_dig(size_t val)
 	return (i);
 }
 
-int		vs_putstr_fd(int fd, char const *s)
+int		vs_putstr_fd(int fd, const char *s)
 {
 	size_t i;
 

@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:50:15 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:50:17 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 11:38:51 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void			to_fd(int n, int num, short ui, int fd)
 
 	i = 0;
 	s = ft_strnew((num) * sizeof(char));
-	if (s)
+	if (s != NULL)
 	{
 		while (i < num)
 		{
@@ -51,9 +51,9 @@ static void			to_fd(int n, int num, short ui, int fd)
 			s[0] = '-';
 		if (ui)
 			s[1] = '2';
+		vs_putstr_fd(fd, s);
+		free(s);
 	}
-	vs_putstr_fd(fd, s);
-	free(s);
 }
 
 int					vs_itoa_fd(int fd, int n)

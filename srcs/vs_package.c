@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:33:40 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 17:18:34 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 13:47:31 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ int		send_vs(t_map *map, t_pazzle *pazzle)
 		ft_dprintf(map->fd, "%s\n", "vis.json file error\n");
 		return (0);
 	}
-	put_file(map);
-	if (map->vs.end_game == 1)
+	if (map->vs.fd > 2)
 	{
-		write(map->vs.fd, "]", 1);
-		close(map->vs.fd);
-		return (1);
+		put_file(map);
+		if (map->vs.end_game == 1)
+		{
+			write(map->vs.fd, "]", 1);
+			close(map->vs.fd);
+			return (1);
+		}
 	}
 }

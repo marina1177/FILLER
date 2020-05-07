@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:48:38 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:49:56 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 13:20:52 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int				parse_pazzle(t_map *map, t_pazzle *pazzle)
 	while (++y < pazzle->rows)
 	{
 		if ((size = get_next_line(0, &line)) == -1)
+		{
+			get_next_line(0, NULL);
 			return (0);
+		}
 		pazzle->piece[y] = ft_strdup(line);
 		free(line);
 	}

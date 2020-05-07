@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:17:13 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 17:29:23 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 13:46:54 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int			create_map(t_map *map)
 	map->heat = (int **)malloc(sizeof(int *) * map->rows);
 	while (++y < map->rows)
 		map->heat[y] = malloc(sizeof(int) * map->cols);
+	ft_dprintf(map->fd, "[%d;%d]\n", map->rows, map->cols);
 	return (1);
 }
 
@@ -104,7 +105,7 @@ static void	conditions(t_map *map, int y, int x)
 		map->heat[y][x] = 0;
 }
 
-void	heat_map(t_map *map)
+void		heat_map(t_map *map)
 {
 	int	y;
 	int	x;
