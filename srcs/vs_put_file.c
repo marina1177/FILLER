@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 16:33:22 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/06 16:52:22 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 16:01:00 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	put_file(t_map *map)
 		return ;
 	}
 	put_my_cells(&map->vs);
+	ft_dprintf(map->fd, "opp_cells: num = %d\n", map->vs.opp_num);
 	put_opp_cells(&map->vs);
 	map->vs.my_num = -1;
 	map->vs.opp_num = -1;

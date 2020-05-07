@@ -6,7 +6,7 @@
 /*   By: bcharity <marvin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 22:44:46 by bcharity          #+#    #+#             */
-/*   Updated: 2020/05/07 11:29:50 by bcharity         ###   ########.fr       */
+/*   Updated: 2020/05/07 16:04:41 by bcharity         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct	s_vs
 	int			end_game;
 	int			cycle;
 	int			my_num;
-	int			my_cells[100];
+	int			my_cells[500];
 	int			opp_num;
-	int			opp_cells[200];
+	int			opp_cells[500];
 	int			fd;
 }				t_vs;
 

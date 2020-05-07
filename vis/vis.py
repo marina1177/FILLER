@@ -23,17 +23,16 @@ SCREEN_WIDTH = int(COLS * SQUARE_SPACING) + 20
 SCREEN_HEIGHT = int(ROWS * SQUARE_SPACING) + 20
 SCREEN_TITLE = "Arena"
 
-#HALF_SQUARE = int((SQUARE_SPACING - 2) / 2) if SQUARE_SPACING % 2 == 0 else int((SQUARE_SPACING - 1) / 2)
-
 
 COLOR_PLAYER = [arcade.color.RED, arcade.color.AMBER, arcade.color.BLUEBERRY]
-COLOR_WRITE = [arcade.color.ALABAMA_CRIMSON, arcade.color.LEMON_GLACIER, arcade.color.GREEN, arcade.color.AQUA]
+COLOR_WRITE = [arcade.color.GREEN, arcade.color.BLUEBERRY,arcade.color.AQUA]
 
 
 class Consts(object):
 	def __init__(self, rows, cols, my_ch, opp_ch):
 		self.rows = rows
 		self.cols = cols
+		self.size = rows * cols
 		self.my_ch = my_ch
 		self.opp_ch = opp_ch
 		self.height = 0
@@ -55,9 +54,9 @@ class MyGame(arcade.Window):
 		super().__init__(width, height, title)
 		arcade.set_background_color(arcade.color.BLACK)
 		self.data = data
-
+		self.won = -1
 		self.cycle = 0
-		self.speed = -10
+		self.speed = 1
 		self.json_indx = 0
 		self.frame_count = 0
 		self.draw_time = 0
@@ -103,26 +102,27 @@ class MyGame(arcade.Window):
 			# меняю счетчик занятой игроком площади
 			if type == 0:
 				self.my_area += 1
-			else:
+			elif type == 1:
 				self.opp_area += 1
 			# меняю цвет ячейки
 			for n in range(0, 4):
 				self.color_list[start_place + n] = COLOR_WRITE[type]
 
 	def drop(self):
-
 		# Cell color refresh
-		#if self.data[self.json_indx]['cells_refresh'] > 0:
-		self.cell_refresh(self.data[self.json_indx]['my_cells'], 0)
-		self.cell_refresh(self.data[self.json_indx]['opp_cells'], 1)
-		self.cycle = self.data[self.json_indx]['cycle']
 
+		for i in range(0, self.speed):
+			self.json_indx += 1
+			if self.json_indx < len(self.data):
+				self.cell_refresh(self.data[self.json_indx]['my_cells'], 0)
+				self.cell_refresh(self.data[self.json_indx]['opp_cells'], 1)
+				self.cycle = self.data[self.json_indx]['cycle']
 		shape = arcade.create_rectangles_filled_with_colors(self.point_list, self.color_list)
 		self.shape_list.append(shape)
 
 	def draw_info(self):
-		start_y = SCREEN_WIDTH - 20
-		start_x = SCREEN_WIDTH + 20
+		start_y = self.const.height - 40
+		start_x = self.const.width + 20
 		# arcade.draw_point(start_x, start_y, arcade.color.BLUE, 5)
 		if self.game_over == False:
 			arcade.draw_text("game state: **running**",
@@ -134,40 +134,52 @@ class MyGame(arcade.Window):
 		start_y -= 20
 		mystr = 'SPEED:' + str(self.speed)
 		arcade.draw_text(mystr, start_x, start_y, arcade.color.WHITE, 12)
-
-		start_y -= 40
+		start_y -= 20
 		mystr = 'cycle: ' + str(self.cycle)
 		arcade.draw_text(mystr, start_x, start_y, arcade.color.WHITE, 12)
-		start_y -= 50
-		for i in range(0, 2):
-			mystr = 'player: ' + str(i)
-			arcade.draw_text(mystr, start_x, start_y, arcade.color.WHITE, 12)
-			start_y -= 30
+
+		start_y -= 40
+		start_x += 80
+		mystr = 'my_player: ' + self.const.my_ch
+		arcade.draw_text(mystr, start_x, start_y, COLOR_WRITE[0], 12)
+		start_x += 200
+
+		mystr = 'opp_player: '+ self.const.opp_ch
+		arcade.draw_text(mystr, start_x, start_y, COLOR_WRITE[1], 12)
+		start_y -= 30
 		#print('star_x =', start_x, 'start_y =', start_y)
 
 
 	def draw_schem(self):
 		# print('Draw schem')
-		start_x = start_x = SCREEN_WIDTH + 20
-		start_y = 120
+		start_x = self.const.width + 20
+		start_y = self.const.height - 40 - 60 - 40 -40
 
 		arcade.draw_text('arena distribution:', start_x, start_y, arcade.color.WHITE, 12)
 		start_y -= 10
-		arcade.draw_lrtb_rectangle_outline(start_x, start_x + MEM_SIZE/10 + 2, start_y, start_y - 12,
+		arcade.draw_lrtb_rectangle_outline(start_x, start_x + 400, start_y, start_y - 20,
 		                             arcade.color.WHITE, 2)
 		start_x += 2
 		start_y -= 2
 		sum_area = 0
-		for i in range(0, len(self.players)):
-			sum_area += self.players[i].area
-			arcade.draw_lrtb_rectangle_filled(start_x, start_x + self.players[i].area/10,
-			                                  start_y, start_y - 8,
-			                                  COLOR_WRITE[self.players[i].id - 1])
-			start_x += self.players[i].area / 10
+		sum_area += self.my_area
+		sum_area += self.opp_area
+		arcade.draw_lrtb_rectangle_filled(start_x, start_x + (self.my_area*400)/self.const.size, start_y, start_y - 16, COLOR_WRITE[0])
+		start_x += (self.my_area*400)/self.const.size
+		arcade.draw_lrtb_rectangle_filled(start_x, start_x + (self.opp_area*400)/self.const.size,
+		                                  start_y, start_y - 16, COLOR_WRITE[1])
+		start_x += (self.opp_area*400)/self.const.size
+		arcade.draw_lrtb_rectangle_filled(start_x, start_x + (self.const.size - sum_area)*400/self.const.size-3,
+		                                                                     start_y, start_y - 16,
+		                                                                  arcade.color.BATTLESHIP_GREY)
 
-		arcade.draw_lrtb_rectangle_filled(start_x, start_x + (self.const.mem_size - sum_area)/10,
-		                                  start_y, start_y - 8,
-		                                  arcade.color.BATTLESHIP_GREY)
+		start_x = self.const.width + 50
+		start_y = self.const.height - 40 - 60 - 40 -40 -40
+		if self.won == 0:
+			arcade.draw_text('I win!', start_x, start_y - 40, COLOR_WRITE[self.won], 20)
+		elif self.won == 1:
+			arcade.draw_text('I think I lost(((((', start_x + 100, start_y - 40, COLOR_WRITE[self.won], 20)
+
 
 	def on_draw(self):
 		#print('>>on_draw>>')
@@ -175,52 +187,43 @@ class MyGame(arcade.Window):
 		arcade.start_render()
 		draw_start_time = timeit.default_timer()
 		self.shape_list.draw()
-		self.draw_carr(self.carriage_list)
 		self.draw_info()
-		#self.draw_schem()
+		self.draw_schem()
 		self.draw_time = timeit.default_timer() - draw_start_time
 
 	def update(self, delta_time):
 		# print('update')
 
 		if self.speed > 0:
-			self.json_indx += self.speed if self.json_indx != 0 else 1
-			if self.json_indx <= len(self.data) - 1:
+			if self.json_indx < len(self.data):
 				self.drop()
 			else:
 				self.game_over = True
-		if self.speed < 0:
-			self.frame_count += 1 # обнулить в key_press
-		if self.frame_count % int(math.fabs(self.speed)) == 0:
-			self.json_indx += 1
-			if self.json_indx < len(self.data):
-				self.drop()
-			elif self.json_indx > len(self.data) - 1:
-				self.json_indx = len(self.data) - 1
-				self.drop()
-				self.game_over = True
+				if len(self.data[len(self.data) - 1]['opp_cells']) != 0:
+					self.won = 1
+				else:
+					self.won = 0
+
 
 	def on_key_press(self, key, modifiers):
 
 		if key == arcade.key.UP:
 			self.frame_count = 0
-			dt = (3 if self.speed == -2 else 2)
+			dt = (1 if self.speed == -1 else 2)
 			self.speed += dt
-			if self.speed > 20:
-				self.speed = 20
+			if self.speed > 30:
+				self.speed = 30
 		elif key == arcade.key.DOWN:
 			self.frame_count = 0
-			self.speed -= (3 if self.speed == 2 else 2)
-			if self.speed < -60:
-				self.speed = -60
-
-
+			self.speed -= (2 if self.speed == 1 else 1)
+			if self.speed <= -1:
+				self.speed = -1
 
 def main():
 	pygame.init()
 	pygame.mixer.music.load('sound/Secret_of_Mana_Desert_Snowstorm_OC_ReMix.mp3')
 	pygame.mixer.music.play(- 1)
-	with open('vis.json') as f:
+	with open('../vis.json') as f:
 		data = json.load(f)
 	const = Consts(data[0]['Consts']['map_rows'],
 		               data[0]['Consts']['map_cols'],
@@ -235,10 +238,8 @@ def main():
 
 	if sq_spac_x < sq_spac_y:
 		const.sq_spacing = sq_spac_x
-		#const.height = int(round((700*const.rows)/const.cols))
 	else:
 		const.sq_spacing = sq_spac_y
-		#const.width = int(round((700 * const.cols) / const.rows))
 
 	if const.sq_spacing % 2 == 0:
 		const.half_sq = int((const.sq_spacing- 2) / 2)
@@ -256,9 +257,6 @@ def main():
 	print(const.sq_spacing)
 	print("half_sq")
 	print(const.half_sq)
-	ROWS = const.rows
-	COLS = const.cols
-	MEM_SIZE = const.rows * const.cols
 
 	window = MyGame(const.width + 500, const.height, 'Arena',
 			                data, const)
